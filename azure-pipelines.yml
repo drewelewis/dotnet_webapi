@@ -44,13 +44,14 @@ stages:
         projects: '**/*.csproj'
         arguments: '--configuration $(buildConfiguration) --no-restore'
 
-    - task: DotNetCoreCLI@2
-      displayName: 'Run Tests'
-      inputs:
-        command: 'test'
-        projects: '**/*[Tt]ests/*.csproj'
-        arguments: '--configuration $(buildConfiguration) --no-build --collect:"XPlat Code Coverage"'
-      continueOnError: true
+    # Uncomment this step when you add test projects to your solution
+    # - task: DotNetCoreCLI@2
+    #   displayName: 'Run Tests'
+    #   inputs:
+    #     command: 'test'
+    #     projects: '**/*[Tt]ests/*.csproj'
+    #     arguments: '--configuration $(buildConfiguration) --no-build --collect:"XPlat Code Coverage"'
+    #   continueOnError: true
 
     - task: DotNetCoreCLI@2
       displayName: 'Publish Application'
